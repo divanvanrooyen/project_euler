@@ -1,3 +1,4 @@
+import time
 
 divisible = True
 
@@ -22,6 +23,8 @@ while count > 0:
         break
 
 print (count)
+print (time.process_time)
+
 # while divisible
 # run through every number
     # check if num has a factor 1 - 10/20 (use uppr & low)
