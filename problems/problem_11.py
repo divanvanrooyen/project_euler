@@ -47,7 +47,7 @@ grid = [[8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8]
 [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
 [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]]
 
-product, max_product = 1, 0
+product, max_product, adj_num = 1, 0, 4
 
 for x in range(0, len(grid[0])):
     for y in range(0,len(grid)):
@@ -74,7 +74,7 @@ for x in range(0, len(grid[0])):
         print()
         # print("Horizontal Right")
         product = 1
-        for z in range(0,4):
+        for z in range(0,adj_num):
             if((y+z) < len(grid[0]) 
                and (x+z) < len(grid)):
                 print(grid[x+z][y+z], end=" ") #Works
@@ -83,10 +83,10 @@ for x in range(0, len(grid[0])):
                     max_product = product
                     print(f"New Max:", max_product)
         print()
-        if y >= 4:
+        if y >= adj_num:
             # print("Horizontal Left")
             product = 1
-            for z in range(0,4):
+            for z in range(0,adj_num):
                 if((y-z) < len(grid[0]) 
                    and (x+z) < len(grid)):
                     print(grid[x+z][y-z], end=" ") #Works
