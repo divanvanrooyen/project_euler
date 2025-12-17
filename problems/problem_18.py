@@ -58,16 +58,15 @@ for y in range(0, len(triangle)):
             break
 
         elif row_high_index - x <= 1 and row_high_index - x >= -1:
-            print(f"High:", row_high_num)
+            # print(f"High:", row_high_num)
             if row_high_num < triangle[y][x]:
                 row_high_index = x
-                row_high_num = triangle[y][x]
-                print (row_high_num)
-                
+                row_high_num = triangle[y][x]          
                 continue
             else:
                 continue
-            
+
+    print (row_high_num)
     sum_high += row_high_num
     row_high_num = 0
     row_high_index = 0
