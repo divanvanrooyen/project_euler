@@ -11,19 +11,28 @@
 import math
 
 digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+digits.sort()
 
+permutes = []
 # n! / (n-k)! when k <= n and 0 when k > n 
 
-def gen_permute(prefix, pool):
-    pool = pool[:prefix] + pool[prefix + 1:]
-    print(f"PREFIX: {prefix}, POOL: {pool}")
+def gen_permute(pool, pref=""):
+    # print(pool, pref)
+    # when do i stop?
+    if len(pool) == 0: 
+        permutes.append(pref)
+        return
 
-    for n, item in enumerate(pool):
-        if len(pool) > 0:
-            # print(f"NEW ITER POOL: {pool}")
-            gen_permute(n, pool)
+    # how do i make the problem slightly smaller and hand it to myself?
+    prefix = pref
 
-for prefix, digit in enumerate(digits):
-    # print(digits[prefix], gen_permute(prefix, digits))
-    gen_permute(prefix, digits)
+    for i, x in enumerate(pool): # for every item in the pool
+        new_prefix = prefix + str(x) # add the first one to the permute
+        new_pool = pool[:i] + pool[i + 1:]  #remove the item from the pool
+        gen_permute(i, new_pool, new_prefix) # call again with 'new' pool
+
+
+gen_permute(0, digits,"")
+print(permutes[999999])
+
     
