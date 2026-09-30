@@ -1,4 +1,6 @@
 .venv/
+.vscode/
+*.json
 __pycache__/
 *.pyc
 .pytest_cache/
@@ -9,3 +11,4 @@ build/
 *.egg-info/
 .env
 .DS_Store
+/problems/random.py
